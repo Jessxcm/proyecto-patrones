@@ -90,10 +90,10 @@ public class PanelImagenInicial extends JPanel implements KeyListener {
 		tecla.setForeground(Color.GREEN);
 		JLabel espacio = new JLabel("ENTER ");
 		espacio.setForeground(Color.YELLOW);
-		presione.setFont(new Font("ArcadeClassic", Font.PLAIN, 49));
-		la.setFont(new Font("ArcadeClassic", Font.PLAIN, 49));
-		tecla.setFont(new Font("ArcadeClassic", Font.PLAIN, 49));
-		espacio.setFont(new Font("ArcadeClassic", Font.PLAIN, 49));
+		presione.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
+		la.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
+		tecla.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
+		espacio.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 		flow.setBackground(fondo);
 		flow.add(presione);
 		flow.add(la);

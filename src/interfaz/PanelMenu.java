@@ -375,6 +375,7 @@ public class PanelMenu extends JPanel implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent e) {
 
+		//String comando = e.getActionCommand();
 		String comando = e.getActionCommand();
 
 		if (comando.equals(CREAR_JUGADOR)) {
