@@ -8,25 +8,21 @@ package mundo;
 public class InvasorCangrejo implements Enemigo {
 	
 	//Atributos
-	private int direccion; //direccion del enemigo
 	
-	private String rutaImagen2; //imagen 2 del enemigo
-	private int puntosPorMuerte; //puntos que dan al ser matados
-	
-	Disparo disparoUno;
-
-	private double velocidad;
-	protected int posX;
-
-	protected int posY;
-
-	private int vida;
-
-	private int ancho;
-
-	private int alto;
-
+	//estado instrinseco (propio de cangrejo)
 	private String rutaImage;
+	private int puntosPorMuerte; //puntos que dan al ser matados
+	private String rutaImagen2; //imagen 2 del enemigo
+	private int vida;
+	private double velocidad;
+	private int ancho;
+	private int alto;
+	
+	//estado extrinseco (cambia de cangrejo a cangrejo)
+	protected int posX;
+	protected int posY;
+	private int direccion; //direccion del enemigo
+	Disparo disparoUno;
 	
 	
 	public InvasorCangrejo(double velocidad, int posX, int posY, int vida, int ancho, int alto, int direccion, String rutaImage, String rutaImage2) {

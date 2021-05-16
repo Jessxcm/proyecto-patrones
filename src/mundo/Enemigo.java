@@ -41,6 +41,7 @@ public interface Enemigo extends Serializable{
 
 	public boolean edge ();
 	
+	public void setVelocidad(double velocidad);
 	public double getVelocidad();
 	
 	public void mover(int dir);

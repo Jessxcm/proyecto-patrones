@@ -8,25 +8,21 @@ package mundo;
 public class InvasorPulpo implements Enemigo {
 	
 	//Atributos
-	private int direccion; //direccion del enemigo
 	
-	private String rutaImagen2; //imagen 2 del enemigo
-	private int puntosPorMuerte; //puntos que dan al ser matados
-	
-	Disparo disparoUno;
-
-	private double velocidad;
-	protected int posX;
-
-	protected int posY;
-
-	private int vida;
-
-	private int ancho;
-
-	private int alto;
-
+	//estado instrinseco (propio de pulpo)
 	private String rutaImage;
+	private int puntosPorMuerte; //puntos que dan al ser matados
+	private String rutaImagen2; //imagen 2 del enemigo
+	private int vida;
+	private double velocidad;
+	private int ancho;
+	private int alto;
+	
+	//estado extrinseco (cambia de pulpo a pulpo)
+	protected int posX;
+	protected int posY;
+	private int direccion; //direccion del enemigo
+	Disparo disparoUno;
 	
 	public InvasorPulpo(double velocidad, int posX, int posY, int vida, int ancho, int alto, int direccion, String rutaImage, String rutaImage2) {
 		this.velocidad = velocidad;
