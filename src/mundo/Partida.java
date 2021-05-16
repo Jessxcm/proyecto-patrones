@@ -240,16 +240,21 @@ public class Partida implements Serializable { //serializable ???
 		linea = br.readLine();
 
 		int vidaEnemigo = Integer.parseInt(linea);
+		System.out.println ("vidaEnemigo: " + vidaEnemigo);
 
 		linea = br.readLine();
 		linea = br.readLine();
 
 		cantEnemigos = Integer.parseInt(linea);
+		
+		System.out.println ("CantEnemigo: " + cantEnemigos);
 
 		linea = br.readLine();
 		linea = br.readLine();
 
 		int velocidad = Integer.parseInt(linea);
+		
+		System.out.println ("velocidad: " + velocidad);
 
 		linea = br.readLine();
 		linea = br.readLine();
@@ -265,12 +270,13 @@ public class Partida implements Serializable { //serializable ???
 		fr.close();
 	}
 
-	public void inicializarEnemigos() {
-
+	/*public void inicializarEnemigos() {
+		
 		for (int i = 0; i < enemigos.length; i++) {
 			for (int j = 0; j < enemigos[i].length; j++) {
 
 				if (i == 0) {
+					
 					enemigos[i][j] = new InvasorCalamar(nivel.getVelocidadEnemigos(), (j * nivel.getPosXPrimerEnemigo() + nivel.getPosXPrimerEnemigo())
 							, nivel.getPosYPrimerEnemigo(), nivel.getVidaEnemigos(), nivel.getAnchoEnemigos(), nivel.getAltoEnemigos(),
 							Enemigo.DERECHA, "./data/imagenes/Naves/s0.png", "./data/imagenes/Naves/s1.png");
@@ -284,6 +290,40 @@ public class Partida implements Serializable { //serializable ???
 					enemigos[i][j] = new InvasorPulpo(nivel.getVelocidadEnemigos(), (j * nivel.getPosXPrimerEnemigo() + nivel.getPosXPrimerEnemigo()),
 							(i * nivel.getPosYPrimerEnemigo() + nivel.getPosYPrimerEnemigo()), nivel.getVidaEnemigos(), nivel.getAnchoEnemigos(), nivel.getAltoEnemigos(),
 							Enemigo.DERECHA, "./data/imagenes/Naves/r0.png", "./data/imagenes/Naves/r1.png");
+				}
+			}
+		}
+
+	}*/
+	
+	
+	public void inicializarEnemigos() {
+		IEnemyFactory enemyFactory = new EnemyFactory(); //crear factoria
+		
+		for (int i = 0; i < enemigos.length; i++) {
+			for (int j = 0; j < enemigos[i].length; j++) {
+
+				if (i == 0) {
+					Enemigo calamar = enemyFactory.GetEnemy("Calamar",nivel.getVelocidadEnemigos(), (j * nivel.getPosXPrimerEnemigo() + nivel.getPosXPrimerEnemigo())
+							, nivel.getPosYPrimerEnemigo(), nivel.getVidaEnemigos(), nivel.getAnchoEnemigos(), nivel.getAltoEnemigos(),
+							Enemigo.DERECHA, "./data/imagenes/Naves/s0.png", "./data/imagenes/Naves/s1.png");
+					
+					enemigos[i][j] = calamar;
+				} else if (i == 1 || i == 2) {
+					
+					Enemigo cangrejo = enemyFactory.GetEnemy("Cangrejo",nivel.getVelocidadEnemigos(), (j * nivel.getPosXPrimerEnemigo() + nivel.getPosXPrimerEnemigo()),
+							(i *  nivel.getPosYPrimerEnemigo() +  nivel.getPosYPrimerEnemigo()), nivel.getVidaEnemigos(), nivel.getAnchoEnemigos(), nivel.getAltoEnemigos(),
+							Enemigo.DERECHA, "./data/imagenes/Naves/p0.png", "./data/imagenes/Naves/p1.png");
+
+					enemigos[i][j] = cangrejo;
+
+				} else if (i == 3 || i == 4) {
+					Enemigo pulpo = enemyFactory.GetEnemy("Pulpo",nivel.getVelocidadEnemigos(), (j * nivel.getPosXPrimerEnemigo() + nivel.getPosXPrimerEnemigo()),
+							(i * nivel.getPosYPrimerEnemigo() + nivel.getPosYPrimerEnemigo()), nivel.getVidaEnemigos(), nivel.getAnchoEnemigos(), nivel.getAltoEnemigos(),
+							Enemigo.DERECHA, "./data/imagenes/Naves/r0.png", "./data/imagenes/Naves/r1.png");
+					
+					
+					enemigos[i][j] = pulpo;
 				}
 			}
 		}
