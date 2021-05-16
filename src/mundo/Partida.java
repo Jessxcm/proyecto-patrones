@@ -298,7 +298,7 @@ public class Partida implements Serializable { //serializable ???
 	
 	
 	public void inicializarEnemigos() {
-		IEnemyFactory enemyFactory = new EnemyFactory(); //crear factoria
+		IEnemyFactory enemyFactory = new EnemigoFactory(); //crear factoria
 		
 		for (int i = 0; i < enemigos.length; i++) {
 			for (int j = 0; j < enemigos[i].length; j++) {

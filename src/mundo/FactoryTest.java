@@ -7,7 +7,7 @@ public class FactoryTest {
 
         System.out.println("***Factoria enemigos Demo***\n");
 
-        IEnemyFactory enemyFactory = new EnemyFactory();
+        IEnemyFactory enemyFactory = new EnemigoFactory();
 
         Enemigo calamar = enemyFactory.GetEnemy("Calamar",0,0,0,3,0,0,0,"./data/imagenes/Naves/s0.png","./data/imagenes/Naves/s1.png");
 
