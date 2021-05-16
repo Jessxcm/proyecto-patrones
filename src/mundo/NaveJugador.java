@@ -215,10 +215,8 @@ public class NaveJugador extends Nave {
 	}
 
 	public void disparar (int posX, int posY) { //la nave dispara
-
-		if (disparoUno == null) { //si no hay disparos
-			cantidadDisparos++; //pero siempre es solo un disparo?????
-			disparoUno = new Disparo(posX, posY);
+		if (disparoUno == null) { //si no tiene disparo
+			disparoUno = new Disparo(posX, posY); //se le agrega un nuevo disparo en la posicion x,y
 		}
 	}
 

@@ -172,7 +172,6 @@ public class InvasorCalamar implements Enemigo {
 	
 
 	public void disparar (int posX, int posY) { //la nave dispara
-		
 		if (disparoUno == null) { //si no tiene disparo
 			disparoUno = new Disparo(posX, posY); //se le agrega un nuevo disparo en la posicion x,y
 		}

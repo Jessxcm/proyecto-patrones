@@ -245,7 +245,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 */
 	public void eliminarDisparo() {  //eliminar disparo de la nave
-		disparoUno = null;
+		this.disparoUno=null;
 	}
 	
 	/**
@@ -253,12 +253,19 @@ public abstract class Nave implements Serializable {
 	 * @param posX
 	 * @param posY
 	 */
-	public void disparar (int posX, int posY) { //la nave dispara
+/*	public void disparar (int posX, int posY) { //la nave dispara
 		
 		if (disparoUno == null) { //si no tiene disparo
 			disparoUno = new Disparo(posX, posY); //se le agrega un nuevo disparo en la posicion x,y
 		}
 		
 	}
-
+*/
+	
+	public void disparar (int posX, int posY) { //la nave dispara
+		if (disparoUno == null) { //si no tiene disparo
+			disparoUno = new Disparo(posX, posY); //se le agrega un nuevo disparo en la posicion x,y
+		}
+		
+	}	
 }
