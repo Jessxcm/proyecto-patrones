@@ -28,17 +28,17 @@ public abstract class Enemigo extends Nave {
 	/**
 	 * 
 	 */
-	private int direccion;
+	private int direccion; //direccion del enemigo
 	
 	/**
 	 * 
 	 */
-	private String rutaImagen2;
+	private String rutaImagen2; //imagen 2 del enemigo
 
 	/**
 	 * 
 	 */
-	private int puntosPorMuerte;
+	private int puntosPorMuerte; //puntos que dan al ser matados
 	
 	// -----------------------------------------------------------------
 	// ---------------------------Constructor---------------------------
@@ -53,9 +53,14 @@ public abstract class Enemigo extends Nave {
 	 * @param ancho
 	 * @param alto
 	 * @param direccion
+	 * 
+	 * 
 	 */
+	
+	//constructor enemigo
+	
 	public Enemigo(double velocidad, int posX, int posY, int vida, int ancho, int alto, int direccion, String rutaImage, String rutaImage2) {
-		super(velocidad, posX, posY, vida, ancho, alto, rutaImage);
+		super(velocidad, posX, posY, vida, ancho, alto, rutaImage); // ????????????????? es el de la nave???
 		this.direccion = direccion;
 		rutaImagen2 = rutaImage2;
 	}
@@ -104,7 +109,7 @@ public abstract class Enemigo extends Nave {
 		this.puntosPorMuerte = puntosPorMuerte;
 	}
 
-	public boolean edge (){
+	public boolean edge (){ //final del tablero ??
 		return (posX > 599 || posX < 0);
 	}
 	
@@ -117,7 +122,7 @@ public abstract class Enemigo extends Nave {
 		
 	}
 	
-	public void moverAbajo (int dir) {
+	public void moverAbajo (int dir) { //los monstruos van bajando cuando recorren el mapa
 		posY += dir*10;
 	}
 	

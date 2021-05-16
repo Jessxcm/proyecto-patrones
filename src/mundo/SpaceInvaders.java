@@ -26,17 +26,17 @@ public class SpaceInvaders {
 	/**
 	 * 
 	 */
-	private ArrayList<NaveJugador> jugadores;
+	private ArrayList<NaveJugador> jugadores; //todos los jugadores que existen en el juego
 
 	/**
 	 * 
 	 */
-	private Partida partidaActual;
+	private Partida partidaActual; //la partida actual
 
 	/**
 	 * 
 	 */
-	private NaveJugador jugadorActual;
+	private NaveJugador jugadorActual; //jugador actual
 
 	/**
 	 * 
@@ -176,17 +176,17 @@ public class SpaceInvaders {
 	 */
 	public void agregarJugador(String nombre, String nickname) throws NicknameYaExisteException, IOException {
 
-		if (buscarJugador(nickname) == null) {
+		if (buscarJugador(nickname) == null) { //buscar al jugador
 			NaveJugador agregar = new NaveJugador(nombre, nickname);
-			jugadores.add(agregar);
-			jugadorActual = agregar;
+			jugadores.add(agregar); //se agrega a todos los jugadores
+			jugadorActual = agregar; //el jugador actual
 			jugadorActual.setPosInicialX(300);
 			jugadorActual.setPosIncialY(410);
 			jugadorActual.setAncho(30);
 			jugadorActual.setAlto(19);
 			serializarJugador();
 		} else
-			throw new NicknameYaExisteException(nickname);
+			throw new NicknameYaExisteException(nickname); //ya existe jugador con ese nick
 
 	}
 
@@ -194,7 +194,7 @@ public class SpaceInvaders {
 	 * @throws IOException
 	 * 
 	 */
-	public void serializarJugador() throws IOException {
+	public void serializarJugador() throws IOException { //guardar en txt el jugador
 
 		File archivo = new File("./data/jugador");
 
@@ -208,7 +208,7 @@ public class SpaceInvaders {
 
 	}
 
-	public void iniciarPartida () {
+	public void iniciarPartida () { // ????
 		jugadorActual.setVida(3);
 	}
 
@@ -232,22 +232,22 @@ public class SpaceInvaders {
 		fis.close();
 	}
 
-	public ArrayList<Partida> darPartidasJugador() {
-		ArrayList<Partida> partidas = new ArrayList<Partida>();
-		if (jugadorActual.getPartidaRaiz() != null)
-			jugadorActual.getPartidaRaiz().inorden(partidas);
+	public ArrayList<Partida> darPartidasJugador() { // partida para el jugador
+		ArrayList<Partida> partidas = new ArrayList<Partida>(); //arraylist de partidas
+		if (jugadorActual.getPartidaRaiz() != null)  //si el jugador actual no tiene una partida raiz
+			jugadorActual.getPartidaRaiz().inorden(partidas); // ??
 
 		return partidas;
 	}
 
-	public void crearPartida(String nombre) throws PartidaYaExisteException, IOException {
+	public void crearPartida(String nombre) throws PartidaYaExisteException, IOException { //crear partida nueva
 		partidaActual = jugadorActual.crearPartida(nombre);
 		partidaActual.setPuntaje(new Puntaje(0, jugadorActual.getNickname(), partidaActual.getNombre()));
 		serializarJugador();
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<NaveJugador> ordenarPorNickname() {
+	public ArrayList<NaveJugador> ordenarPorNickname() { //order los nombres de jugadores
 
 		ArrayList<NaveJugador> jugadoresOrdenados = (ArrayList<NaveJugador>) jugadores.clone();
 
@@ -352,7 +352,7 @@ public class SpaceInvaders {
 	 * @throws IOException
 	 * 
 	 */
-	public void serializarPuntaje() throws IOException {
+	public void serializarPuntaje() throws IOException { //esto deberia ir en puntaje?
 
 		File archivo = new File("./data/puntaje");
 

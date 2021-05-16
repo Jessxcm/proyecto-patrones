@@ -15,7 +15,7 @@ import excepciones.PartidaYaExisteException;
  * @author Manuel Alejandro Coral Lozano - Juan Sebastián Quintero Yoshioka
  *         Proyecto final - Algoritmos y programación II.
  */
-public class Partida implements Serializable {
+public class Partida implements Serializable { //serializable ???
 
 	// -----------------------------------------------------------------
 	// ---------------------------Asociaciones--------------------------
@@ -24,27 +24,27 @@ public class Partida implements Serializable {
 	/**
 	 * 
 	 */
-	private Partida partidaIzquierda;
+	private Partida partidaIzquierda; //???
 
 	/**
 	 * 
 	 */
-	private Partida partidaDerecha;
+	private Partida partidaDerecha; // ??
 
 	/**
 	 * 
 	 */
-	private Enemigo[][] enemigos;
+	private Enemigo[][] enemigos; //matriz de enemigos
 
 	/**
 	 * 
 	 */
-	private Puntaje puntaje;
+	private Puntaje puntaje;  //puntaje del jugador
 
 	/**
 	 * 
 	 */
-	private Nivel nivel;
+	private Nivel nivel; //nivel de la partida?
 
 	// -----------------------------------------------------------------
 	// ----------------------------Atributos----------------------------

@@ -16,7 +16,7 @@ public class NaveJugador extends Nave {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L; //?
 
 	// -----------------------------------------------------------------
 	// ----------------------------Atributos----------------------------
@@ -25,32 +25,32 @@ public class NaveJugador extends Nave {
 	/**
 	 * 
 	 */
-	private Partida partidaRaiz;
+	private Partida partidaRaiz; // ?
 
 	/**
 	 * 
 	 */
-	private int posInicialX;
+	private int posInicialX; //posicion inicial jugador
 
 	/**
 	 * 
 	 */
-	private int posIncialY;
+	private int posIncialY;  //posicion final jugador
 	
 	/**
 	 * 
 	 */
-	private String nickname;
+	private String nickname; // nick del jugador ?????
 
 	/**
 	 * 
 	 */
-	private String nombre;
+	private String nombre; // nombre del jugador ????
 
 	/**
 	 * 
 	 */
-	private int cantidadDisparos;
+	private int cantidadDisparos; //cantidad de disparos de la nave
 
 	// -----------------------------------------------------------------
 	// ---------------------------Constructor---------------------------
@@ -62,12 +62,12 @@ public class NaveJugador extends Nave {
 	 * @param pDirectorio
 	 */
 	public NaveJugador(String nombre, String nickname) {
-		super();
-		partidaRaiz = null;
+		super(); // ??? inicializa todo en 0 ?? para que si luego se asignan??
+		partidaRaiz = null; // ???? por que partidas en nave?
 		this.posInicialX = 320;
-		this.posIncialY = 410;
+		this.posIncialY = 410; //para que sirve el constructor anterior si todo se esta quemando aca?
 		this.setVida(3);
-		this.nombre = nombre;
+		this.nombre = nombre; // por que la nave tiene el nombre y el nickname?
 		this.nickname = nickname;
 	}
 
@@ -80,12 +80,12 @@ public class NaveJugador extends Nave {
 	 * @param agregar
 	 * @throws PartidaYaExisteException
 	 */
-	public void agregarPartida(Partida agregar) throws PartidaYaExisteException {
+	public void agregarPartida(Partida agregar) throws PartidaYaExisteException { // por que cosas relacionadas con la partida en la nave?
 
-		if (partidaRaiz == null) {
-			partidaRaiz = agregar;
+		if (partidaRaiz == null) { //partida raiz es nula, se agrega partida
+			partidaRaiz = agregar; //la partida pasa a ser agregar
 		} else {
-			partidaRaiz.agregarPartida(agregar);
+			partidaRaiz.agregarPartida(agregar); //si la partida raiz no es nula, se agrega la partida
 		}
 
 	}
@@ -95,7 +95,7 @@ public class NaveJugador extends Nave {
 	 * @param nombre
 	 * @throws PartidaYaExisteException
 	 */
-	public Partida crearPartida(String nombre) throws PartidaYaExisteException {
+	public Partida crearPartida(String nombre) throws PartidaYaExisteException {  //la partida esta ligada a la nave ???
 
 		Partida b = new Partida(nombre);
 		agregarPartida(b);
@@ -108,7 +108,7 @@ public class NaveJugador extends Nave {
 	 * 
 	 * @return
 	 */
-	public int getPosInicialX() {
+	public int getPosInicialX() { 
 		return this.posInicialX;
 	}
 
@@ -140,7 +140,7 @@ public class NaveJugador extends Nave {
 	 * 
 	 * @return
 	 */
-	public Partida getPartidaRaiz() {
+	public Partida getPartidaRaiz() { //partida de raiz
 		return partidaRaiz;
 	}
 
@@ -184,40 +184,40 @@ public class NaveJugador extends Nave {
 		this.nickname = nickname;
 	}
 
-	public int getCantidadDisparos() {
+	public int getCantidadDisparos() { //cantidad disparos de la nave??
 		return cantidadDisparos;
 	}
 
-	public void setCantidadDisparos(int cantidadDisparos) {
+	public void setCantidadDisparos(int cantidadDisparos) { 
 		this.cantidadDisparos = cantidadDisparos;
 	}
 
-	public boolean perdio () {
+	public boolean perdio () { //saner si jugador perdio
 		return getVida() == 0;
 	}
 
 	/**
 	 * 
 	 */
-	public void iniciarPartida() {
+	public void iniciarPartida() {  // no se usa????
 
 	}
 
 	@Override
 	public void mover(int dir) {
-		super.mover(dir);
+		super.mover(dir); // ?????????????????????????
 		posInicialX += dir * 10.0d;
 	}
 
 	@Override
-	public String toString() {
+	public String toString() { //para que es?
 		return nickname;
 	}
 
-	public void disparar (int posX, int posY) {
+	public void disparar (int posX, int posY) { //la nave dispara
 
-		if (disparoUno == null) {
-			cantidadDisparos++;
+		if (disparoUno == null) { //si no hay disparos
+			cantidadDisparos++; //pero siempre es solo un disparo?????
 			disparoUno = new Disparo(posX, posY);
 		}
 	}

@@ -25,22 +25,22 @@ public class Nivel implements Serializable {
 	/**
 	 * 
 	 */
-	private int velocidadEnemigos;
+	private int velocidadEnemigos; //velocidad enemigos
 
 	/**
 	 * 
 	 */
-	private int enemigos;
+	private int enemigos; //enemigos
 	
 	/**
 	 * 
 	 */
-	private int vidaEnemigos;
+	private int vidaEnemigos; //vida enemigos
 
 	/**
 	 * 
 	 */
-	private int posXPrimerEnemigo;
+	private int posXPrimerEnemigo; //pos primer enemigo
 
 	/**
 	 * 
@@ -143,11 +143,11 @@ public class Nivel implements Serializable {
 	 * 
 	 * @param posXPrimerEnemigo
 	 */
-	public void setPosXPrimerEnemigo(int posXPrimerEnemigo) {
+	public void setPosXPrimerEnemigo(int posXPrimerEnemigo) { // por que del primer enemigo
 		this.posXPrimerEnemigo = posXPrimerEnemigo;
 	}
 
-	public int getPosYPrimerEnemigo() {
+	public int getPosYPrimerEnemigo() { 
 		return this.posYPrimerEnemigo;
 	}
 
@@ -163,7 +163,7 @@ public class Nivel implements Serializable {
 	 * 
 	 * @return
 	 */
-	public int getAnchoEnemigos() {
+	public int getAnchoEnemigos() { //el ancho de los enemigos va en el nivel?
 		return anchoEnemigos;
 	}
 
@@ -194,7 +194,7 @@ public class Nivel implements Serializable {
 	/**
 	 * 
 	 */
-	public void definirNivel() {
+	public void definirNivel() { //no se usa
 		
 	}
 }

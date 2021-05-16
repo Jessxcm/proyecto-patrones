@@ -76,7 +76,7 @@ public class Puntaje implements Serializable {
 		this.puntuacion = this.puntuacion + puntuacion;
 	}
 
-	public String getNickname() {
+	public String getNickname() { //otro????
 		return this.nickname;
 	}
 
