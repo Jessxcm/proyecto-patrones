@@ -42,6 +42,8 @@ public class InvasorCalamar implements Enemigo {
 		rutaImage = ("./data/imagenes/Naves/s0.png");
 		setPuntosPorMuerte(30);
 		
+		System.out.println ("Soy un calamar");
+		
 	}
 	
 	
@@ -178,8 +180,5 @@ public class InvasorCalamar implements Enemigo {
 		
 	}
 	
-	public void speak() {
-		System.out.println ("Soy un calamar");
-	}
 	
 }

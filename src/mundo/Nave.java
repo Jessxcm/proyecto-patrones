@@ -70,7 +70,7 @@ public abstract class Nave implements Serializable {
 	 * @param ancho
 	 * @param alto
 	 */
-	public Nave() {  //constructor con todo 0, es necesario?
+	public Nave() {
 		this.velocidad = 0;
 		this.posX = 0;
 		this.posY = 0;
@@ -79,7 +79,7 @@ public abstract class Nave implements Serializable {
 		this.alto = 0;
 	}
 
-	public Nave(double velocidad, int posX, int posY, int vida, int ancho, int alto, String ruta) {  //constructor que recibe datos
+	public Nave(double velocidad, int posX, int posY, int vida, int ancho, int alto, String ruta) {
 		this.velocidad = velocidad;
 		this.posX = posX;
 		this.posY = posY;
@@ -93,11 +93,11 @@ public abstract class Nave implements Serializable {
 	// -----------------------------Métodos-----------------------------
 	// -----------------------------------------------------------------
 
-	public String getRutaImage() { //get imagen de la nave
+	public String getRutaImage() {
 		return rutaImage;
 	}
 
-	public void setRutaImage(String rutaImage) { //set imagen de la nave
+	public void setRutaImage(String rutaImage) {
 		this.rutaImage = rutaImage;
 	}
 
@@ -105,7 +105,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @return
 	 */
-	public double getVelocidad() { //get velocidad de la nave
+	public double getVelocidad() {
 		return this.velocidad;
 	}
 
@@ -113,7 +113,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @param velocidad
 	 */
-	public void setVelocidad(double velocidad) {  //set velocidad de la nave
+	public void setVelocidad(double velocidad) {
 		this.velocidad = velocidad;
 	}
 
@@ -121,7 +121,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @return
 	 */
-	public int getPosX() {  //get posicion en x de la nave
+	public int getPosX() {
 		return this.posX;
 	}
 
@@ -129,7 +129,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @param posX
 	 */
-	public void setPosX(int posX) {  //set posicion en x de la nave
+	public void setPosX(int posX) {
 		this.posX = posX;
 	}
 
@@ -137,7 +137,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @return
 	 */
-	public int getPosY() { //get posicion en y de la nave
+	public int getPosY() {
 		return this.posY;
 	}
 
@@ -145,7 +145,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @param posY
 	 */
-	public void setPosY(int posY) {  //set posicion en y de la nave
+	public void setPosY(int posY) {
 		this.posY = posY;
 	}
 
@@ -153,7 +153,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @return
 	 */
-	public int getVida() {  //get vida de la nave
+	public int getVida() {
 		return this.vida;
 	}
 
@@ -161,7 +161,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @param vidas
 	 */
-	public void setVida(int vida) { //set vida de la nave
+	public void setVida(int vida) {
 		this.vida = vida;
 	}
 
@@ -169,7 +169,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @param daño
 	 */
-	public void golpe (int daño) {   //quitar una vida cuando la nave recibe un golpe
+	public void golpe (int daño) {
 		this.vida = this.vida - daño;
 	}
 	
@@ -177,7 +177,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @param ancho
 	 */
-	public void setAncho(int ancho) {  //set ancho de la nave
+	public void setAncho(int ancho) {
 		this.ancho = ancho;
 	}
 
@@ -185,7 +185,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @return
 	 */
-	public int getAncho() {  //get ancho de la nave
+	public int getAncho() {
 		return this.ancho;
 	}
 
@@ -193,7 +193,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @return
 	 */
-	public int getAlto() {  //get alto de la nave
+	public int getAlto() {
 		return this.alto;
 	}
 
@@ -201,7 +201,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @param alto
 	 */
-	public void setAlto(int alto) { //set alto de la nave
+	public void setAlto(int alto) {
 		this.alto = alto;
 	}
 
@@ -209,7 +209,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @return
 	 */
-	public Disparo getDisparoUno() {  //get el disparo de la nave
+	public Disparo getDisparoUno() {
 		return disparoUno;
 	}
 
@@ -217,7 +217,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @param disparoUno
 	 */
-	public void setDisparoUno(Disparo disparoUno) { //set el disparo de la nave
+	public void setDisparoUno(Disparo disparoUno) {
 		this.disparoUno = disparoUno;
 	}
 
@@ -225,27 +225,27 @@ public abstract class Nave implements Serializable {
 	 * 
 	 * @return
 	 */
-	public boolean estaViva() { //preguntar si la nave tiene vidas
+	public boolean estaViva() {
 		return vida != 0;
 	}
 
 	/**
 	 * 
 	 */
-	public void mover(int dir) {   //???
+	public void mover(int dir) {
 	}
 
 	/**
 	 * 
 	 */
-	public void resetear() {  //????
+	public void resetear() {
 	}
 	
 	/**
 	 * 
 	 */
-	public void eliminarDisparo() {  //eliminar disparo de la nave
-		this.disparoUno=null;
+	public void eliminarDisparo() {
+		disparoUno = null;
 	}
 	
 	/**
@@ -253,19 +253,12 @@ public abstract class Nave implements Serializable {
 	 * @param posX
 	 * @param posY
 	 */
-/*	public void disparar (int posX, int posY) { //la nave dispara
+	public void disparar (int posX, int posY) {
 		
-		if (disparoUno == null) { //si no tiene disparo
-			disparoUno = new Disparo(posX, posY); //se le agrega un nuevo disparo en la posicion x,y
+		if (disparoUno == null) {
+			disparoUno = new Disparo(posX, posY);
 		}
 		
 	}
-*/
-	
-	public void disparar (int posX, int posY) { //la nave dispara
-		if (disparoUno == null) { //si no tiene disparo
-			disparoUno = new Disparo(posX, posY); //se le agrega un nuevo disparo en la posicion x,y
-		}
-		
-	}	
+
 }

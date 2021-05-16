@@ -41,6 +41,8 @@ public class InvasorPulpo implements Enemigo {
 		
 		rutaImage = ("./data/imagenes/Naves/r0.png");
 		setPuntosPorMuerte(10);
+		
+		System.out.println ("Soy un pulpo");
 	}
 	
 	
@@ -191,9 +193,6 @@ public class InvasorPulpo implements Enemigo {
 		
 	}
 	
-	public void speak() {
-		System.out.println ("Soy un pulpo");
-	}
 	
 
 }

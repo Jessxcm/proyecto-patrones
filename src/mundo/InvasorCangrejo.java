@@ -43,6 +43,7 @@ public class InvasorCangrejo implements Enemigo {
 		rutaImage = ("./data/imagenes/Naves/p0.png");
 		setPuntosPorMuerte(20);
 		
+		System.out.println ("Soy un cangrejo");
 	}
 	
 	
@@ -191,7 +192,4 @@ public class InvasorCangrejo implements Enemigo {
 		}
 	}
 	
-	public void speak() {
-		System.out.println ("Soy un cangrejo");
-	}
 }

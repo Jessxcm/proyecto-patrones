@@ -71,6 +71,5 @@ public interface Enemigo extends Serializable{
 
 	public void disparar (int posX, int posY);
 	
-	public void speak();
 
 }

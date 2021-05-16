@@ -43,14 +43,11 @@ public class Teclado implements KeyListener {
 		if (actu.getEnFuncionamiento()) {
 			navesita = actu.getJugadorActual();
 			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-				navesita.disparar(interfaz.darPosActualJugador(), 410);
-				interfaz.startHiloJugador();
-				
 
-				/*if (navesita.getDisparoUno() == null) {
+				if (navesita.getDisparoUno() == null) {
 					navesita.disparar(interfaz.darPosActualJugador(), 410);
 					interfaz.startHiloJugador();
-				}*/
+				}
 			}
 
 			if (e.getKeyCode() == KeyEvent.VK_LEFT) {
