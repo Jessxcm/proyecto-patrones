@@ -2,6 +2,7 @@ package hilos;
 
 import interfaz.InterfazSpaceInvaders;
 import mundo.Enemigo;
+import mundo.EnemigoFlyweight;
 import mundo.InvasorCalamar;
 import mundo.InvasorCangrejo;
 
@@ -10,7 +11,7 @@ public class HiloAnimacionEnemigos extends Thread {
 	Enemigo enemigo;
 	InterfazSpaceInvaders interfaz;
 	
-	public HiloAnimacionEnemigos(Enemigo invasores, InterfazSpaceInvaders principal) {
+	public HiloAnimacionEnemigos(EnemigoFlyweight invasores, InterfazSpaceInvaders principal) {
 		// TODO Auto-generated constructor stub
 		
 		enemigo = invasores;
@@ -30,7 +31,6 @@ public class HiloAnimacionEnemigos extends Thread {
 			} else {
 				enemigo.setRutaImage("./data/imagenes/Naves/r0.png");
 			}
-
 			try {
 				sleep(1000);
 			} catch (InterruptedException e) {

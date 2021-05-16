@@ -15,62 +15,24 @@ public interface Enemigo extends Serializable{
 	// -----------------------------Métodos-----------------------------
 	// -----------------------------------------------------------------
 	
-	public int getPosX();
-
-	public void setPosX(int posX);
-
-	public int getPosY();
-
-	public void setPosY(int posY);
-
-	public void setDireccion(int direccion);
-	
-	public int getDireccion();
-	
 	public String getRutaImage();
-
 	public void setRutaImage(String rutaImage);
-	
 	public String getRutaImagen2();
-
 	public void setRutaImagen2(String rutaImagen2);
-	
-	public int getPuntosPorMuerte();
-
-	public void setPuntosPorMuerte(int puntosPorMuerte);
-
-	public boolean edge ();
-	
-	public void setVelocidad(double velocidad);
 	public double getVelocidad();
-	
-	public void mover(int dir);
-	
-	public void moverAbajo (int dir);
-	
+	public void setVelocidad(double velocidad);
+	public int getPuntosPorMuerte();
+	public void setPuntosPorMuerte(int puntosPorMuerte);
 	public int getVida();
-
 	public void setVida(int vida);
-	
-	public void golpe (int daño);
-	
 
+	public void golpe (int daño);
 	public void setAncho(int ancho);
 	public int getAncho();
-
 	public int getAlto();
 
 	public void setAlto(int alto);
-	public Disparo getDisparoUno();
-
-	public void setDisparoUno(Disparo disparoUno);
 
 	public boolean estaViva();
-
-	public void eliminarDisparo();
-	
-
-	public void disparar (int posX, int posY);
-	
 
 }

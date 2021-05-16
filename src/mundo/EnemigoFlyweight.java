@@ -5,7 +5,7 @@ package mundo;
 
 
 //flyweight implementa enemigo
-public class EnemyFlyweight implements Flyweight {
+public class EnemigoFlyweight implements Enemigo {
 	
 	protected int posX;
 	protected int posY;
@@ -13,16 +13,18 @@ public class EnemyFlyweight implements Flyweight {
 	Disparo disparoUno;
 
 	
-	private String tipo;
-	
 	
 	private Enemigo enemigoLigero; //enemigo (calamar, cangrejo, pulpo) que tiene lo compartido entre grupo de enemigos 
 	
 	
-	
-	public EnemyFlyweight(Enemigo enemigoLigero, String tipo) {
-		super();
-		this.tipo= tipo;
+	//parte compartida y no compartida
+	public EnemigoFlyweight(Enemigo enemigoLigero, int x, int y,int direccion) {
+		super(); //iniciar parte compartida
+		//parte no compartida
+		this.posX=x;
+		this.posY=y;
+		this.direccion=direccion;
+		this.enemigoLigero=enemigoLigero;
 	}
 
 		

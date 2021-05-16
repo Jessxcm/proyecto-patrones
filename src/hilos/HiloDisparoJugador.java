@@ -2,6 +2,7 @@ package hilos;
 
 import interfaz.InterfazSpaceInvaders;
 import mundo.Enemigo;
+import mundo.EnemigoFlyweight;
 import mundo.NaveJugador;
 import mundo.Partida;
 
@@ -9,10 +10,10 @@ public class HiloDisparoJugador extends Thread {
 
 	private NaveJugador navesita;
 	private InterfazSpaceInvaders interfaz;
-	private Enemigo[][] enemigos;
+	private EnemigoFlyweight[][] enemigos;
 	private Partida actual;
 
-	public HiloDisparoJugador(NaveJugador a, InterfazSpaceInvaders b, Enemigo[][] c, Partida d) {
+	public HiloDisparoJugador(NaveJugador a, InterfazSpaceInvaders b, EnemigoFlyweight[][] c, Partida d) {
 		// TODO Auto-generated constructor stub
 
 		navesita = a;

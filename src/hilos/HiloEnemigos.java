@@ -2,13 +2,14 @@ package hilos;
 
 import interfaz.InterfazSpaceInvaders;
 import mundo.Enemigo;
+import mundo.EnemigoFlyweight;
 
 public class HiloEnemigos extends Thread {
 
 	InterfazSpaceInvaders interfaz;
-	Enemigo enemigo;
+	EnemigoFlyweight enemigo;
 
-	public HiloEnemigos(Enemigo invasores, InterfazSpaceInvaders interfaz) {
+	public HiloEnemigos(EnemigoFlyweight invasores, InterfazSpaceInvaders interfaz) {
 		// TODO Auto-generated constructor stub
 
 		enemigo = invasores;

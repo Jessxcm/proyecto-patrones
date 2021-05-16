@@ -56,7 +56,7 @@ public class Disparo implements Serializable {
 		this.posY = this.posY + 5;
 	}
 
-	public boolean hitsEnemigo(Enemigo a) {
+	public boolean hitsEnemigo(EnemigoFlyweight a) {
 		boolean salida = false;
 		int r = 8;
 		if (a != null) {
