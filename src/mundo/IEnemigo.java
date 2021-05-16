@@ -17,6 +17,10 @@ public interface IEnemigo {
 	
 	public int getDireccion();
 	
+	public String getRutaImage();
+
+	public void setRutaImage(String rutaImage);
+	
 	public String getRutaImagen2();
 
 	public void setRutaImagen2(String rutaImagen2);

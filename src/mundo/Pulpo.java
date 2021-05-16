@@ -48,6 +48,14 @@ public class Pulpo implements IEnemigo {
 		return direccion;
 	}
 	
+	public String getRutaImage() { //get imagen de la nave
+		return rutaImage;
+	}
+
+	public void setRutaImage(String rutaImage) { //set imagen de la nave
+		this.rutaImage = rutaImage;
+	}
+	
 	public String getRutaImagen2() {
 		return rutaImagen2;
 	}

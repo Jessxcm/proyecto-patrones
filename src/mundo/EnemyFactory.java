@@ -4,7 +4,7 @@ package mundo;
 
 public class EnemyFactory extends IEnemyFactory{
 	
-	public IEnemigo GetEnemyType(String Enemigo, double velocidad, int posX, int posY, int vida, int ancho, int alto, int direccion, String rutaImage, String ruta ) {
+	public IEnemigo GetEnemy(String Enemigo, double velocidad, int posX, int posY, int vida, int ancho, int alto, int direccion, String rutaImage, String ruta ) {
 
 		if(Enemigo.equalsIgnoreCase("Calamar")){
 			return new Calamar(velocidad,posX, posY,vida,ancho,alto,direccion, rutaImage, ruta);
