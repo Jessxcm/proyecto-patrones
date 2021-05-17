@@ -96,12 +96,5 @@ public class Disparo implements Serializable {
 	}
 	
 	
-	public boolean isActive() {
-		return this.activo;
-	}
-	
-	public boolean setActive(boolean a) {
-		return this.activo=a;
-	}
 
 }

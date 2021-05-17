@@ -51,6 +51,9 @@ public class NaveJugador extends Nave {
 	 * 
 	 */
 	private int cantidadDisparos;
+	
+	private DisparoPool pool = DisparoPool.getInstance(1);
+	
 
 	// -----------------------------------------------------------------
 	// ---------------------------Constructor---------------------------
@@ -213,13 +216,19 @@ public class NaveJugador extends Nave {
 	public String toString() {
 		return nickname;
 	}
+	
+	@Override
+	public void eliminarDisparo() {
+		System.out.println ("entro a eliminar");
+		pool.returnItem(disparoUno);
+		disparoUno = null;
+	}
 
-	public void disparar (int posX, int posY) {
 
-		if (disparoUno == null) {
-			cantidadDisparos++;
-			disparoUno = new Disparo(posX, posY);
-		}
+	public void disparar (int posX, int posY) {	
+		System.out.println ("entro a disparar");
+		disparoUno= pool.givetItem(posX, posY);
+		//cantidadDisparos++;
 	}
 
 }

@@ -245,7 +245,7 @@ public abstract class Nave implements Serializable {
 	 * 
 	 */
 	public void eliminarDisparo() {
-		disparoUno = null;
+		//disparoUno = null;
 	}
 	
 	/**

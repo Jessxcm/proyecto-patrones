@@ -5,36 +5,24 @@ public class ObjectPoolTest {
 
 	public static void main(String[] args) {
 	    
-		    DisparoPool pool = DisparoPool.getInstance();
-			pool.setMaxPool(2); //pool de 3 disparos
+		    DisparoPool pool = DisparoPool.getInstance(3);
 			
 			Disparo disparo1 = pool.givetItem(120,3);
-			Disparo disparo2 = pool.givetItem(12,6);
-			System.out.println (disparo2.getPosX());
+			System.out.println ("posxDisparo 1: " + disparo1.getPosX()); 
+			Disparo disparo2 = pool.givetItem(30,6);
+			System.out.println ("posxDisparo 2: " + disparo2.getPosX()); 
 			Disparo disparo3 = pool.givetItem(0,0);
-			Disparo disparo4 = pool.givetItem(20,34);
-			Disparo disparo5 = pool.givetItem(11,2);
-			
-			System.out.println (pool.getStatePool());
+			System.out.println ("posxDisparo 3: " + disparo3.getPosX()); 
 			
 			pool.returnItem(disparo1);
+			Disparo disparo4 = pool.givetItem(4,4);
+			System.out.println ("posxDisparo 4: " + disparo4.getPosX()); 
+			System.out.println ("posyDisparo 4: " + disparo4.getPosY());
 			
-			System.out.println (pool.getStatePool());
-			
-			pool.returnItem(disparo2);
-			pool.returnItem(disparo3);
-			pool.returnItem(disparo4);
-			pool.returnItem(disparo5);
-			
-			System.out.println (pool.getStatePool());
-			
-			Disparo disparo6 = pool.givetItem(123,45);
-			System.out.println (disparo6.getPosX());
-			System.out.println (pool.getStatePool());
+			Disparo disparo5 = pool.givetItem(5,5);
 			
 			
 			
-			DisparoPool pool2 = DisparoPool.getInstance();
 			
 	}
 
