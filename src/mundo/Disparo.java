@@ -1,6 +1,7 @@
 package mundo;
 
 import java.io.Serializable;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Disparo implements Serializable {
 
@@ -14,6 +15,8 @@ public class Disparo implements Serializable {
 	private int posX;
 
 	private int posY;
+	
+	
 
 	public Disparo(int posX, int posY) {
 		// TODO Auto-generated constructor stub
