@@ -34,6 +34,8 @@ public class ObjectPoolTest {
 			
 			
 			
+			DisparoPool pool2 = DisparoPool.getInstance();
+			
 	}
 
 }

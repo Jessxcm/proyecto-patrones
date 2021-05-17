@@ -9,7 +9,9 @@ public class DisparoPool extends ObjectPool<Disparo> {
     public static DisparoPool getInstance() { 
     	if (disparoPool==null){
     		disparoPool = new DisparoPool();
+    		System.out.println ("se creo nuevo singleton");
         }
+    	
         return disparoPool;
     }
 

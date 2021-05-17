@@ -11,7 +11,7 @@ public class EnemigoFlyweight implements Enemigo {
 	protected int posY;
 	private int direccion; //direccion del enemigo
 	Disparo disparoUno;
-
+	DisparoPool pool = DisparoPool.getInstance();
 	
 	
 	private Enemigo enemigoLigero; //enemigo (calamar, cangrejo, pulpo) que tiene lo compartido entre grupo de enemigos 
@@ -166,15 +166,25 @@ public class EnemigoFlyweight implements Enemigo {
 
 
 	public void eliminarDisparo() {  //eliminar disparo de la nave
-		disparoUno = null;
+		//disparoUno = null;
+		disparoUno.setActive(false);
+		pool.returnItem(disparoUno);
+		System.out.println ("print en eliminar: "+ pool.getStatePool());
 	}
 	
 
 	public void disparar (int posX, int posY) { //la nave dispara
+		/*
 		if (disparoUno == null) { //si no tiene disparo
 			disparoUno = new Disparo(posX, posY); //se le agrega un nuevo disparo en la posicion x,y
-		}
+		}*/
 		
+		disparoUno= pool.givetItem(posX, posY);
+		if(disparoUno!=null) {
+			disparoUno.setActive(true);
+			System.out.println ("disparar dentro del if: "+ pool.getStatePool());
+		}
+		System.out.println ("disparar fuera del if: "+ pool.getStatePool());
 	}
 
 }

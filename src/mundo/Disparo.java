@@ -16,6 +16,8 @@ public class Disparo implements Serializable {
 
 	private int posY;
 	
+	private boolean activo;
+	
 	
 
 	public Disparo(int posX, int posY) {
@@ -91,6 +93,15 @@ public class Disparo implements Serializable {
 		}
 
 		return salida;
+	}
+	
+	
+	public boolean isActive() {
+		return this.activo;
+	}
+	
+	public boolean setActive(boolean a) {
+		return this.activo=a;
 	}
 
 }

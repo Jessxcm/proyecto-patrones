@@ -1,10 +1,10 @@
 package mundo;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
 
-
-public abstract class ObjectPool<T> {
+public abstract class ObjectPool<T> implements Serializable {
 
 	  
 	  ArrayList<Disparo> available = new ArrayList<>();
