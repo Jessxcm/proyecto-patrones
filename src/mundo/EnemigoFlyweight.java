@@ -11,7 +11,7 @@ public class EnemigoFlyweight implements Enemigo {
 	protected int posY;
 	private int direccion; //direccion del enemigo
 	Disparo disparoUno;
-	DisparoPool pool = DisparoPool.getInstance(3);
+	DisparoPoolEnemigo pool = DisparoPoolEnemigo.getInstance(50); //pool de disparos de tamaño 50
 	
 	
 	private Enemigo enemigoLigero; //enemigo (calamar, cangrejo, pulpo) que tiene lo compartido entre grupo de enemigos 
@@ -166,29 +166,23 @@ public class EnemigoFlyweight implements Enemigo {
 
 
 	public void eliminarDisparo() {  //eliminar disparo de la nave
-		disparoUno = null;
+		//disparoUno = null;
 
-		/*System.out.println ("entro a eliminar");
-	    System.out.println (disparoUno.getPosX());
-		pool.returnItem(this.disparoUno);*/
+		System.out.println ("entro a eliminar enemigo");
+		pool.returnItem(this.disparoUno);  //se guarda la instancia en la pool
+		disparoUno = null; //disparoUno apunta a nada 
 		
 	}
 	
 
 	public void disparar (int posX, int posY) { //la nave dispara
 		
-		if (disparoUno == null) { //si no tiene disparo
+		/*if (disparoUno == null) { //si no tiene disparo
 			disparoUno = new Disparo(posX, posY); //se le agrega un nuevo disparo en la posicion x,y
-		}
+		}*/
 		
-		/*System.out.println ("entro a disparar");
-		System.out.println ("posX que deberia tener: " +posX);
-		System.out.println ("posy que deberia tener: " +posY);
-		disparoUno= pool.givetItem(posX, posY);
-		
-		System.out.println ("posX que tiene: " +disparoUno.getPosX());
-		System.out.println ("posy que tiene: " +disparoUno.getPosY());*/
-
+		System.out.println ("entro a disparar enemigo");
+		disparoUno= pool.givetItem(posX, posY); //se toma una instancia de disparo del pool
 	}
 
 }

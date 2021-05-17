@@ -38,8 +38,7 @@ public abstract class ObjectPool<T> implements Serializable {
 	  
 	  //devolver al pool
 	  public void returnItem(Disparo instance) {
-		  
-		  if(available.size()<50) {
+		  if(available.size()<this.getMaxPool()) {
 			  inUse.remove(instance);
 			  available.add(instance);
 		  }
@@ -50,6 +49,11 @@ public abstract class ObjectPool<T> implements Serializable {
 	  
 	  public void setMaxPool(int max) {
 		  this.maxPool=max;
+	  }
+	  
+	  public int getMaxPool() {
+		  return maxPool;
+		  
 	  }
 	  
 	  public String getStatePool() {
