@@ -11,7 +11,7 @@ public class EnemigoFlyweight implements Enemigo {
 	protected int posY;
 	private int direccion; //direccion del enemigo
 	Disparo disparoUno;
-	DisparoPoolEnemigo pool = DisparoPoolEnemigo.getInstance(50); //pool de disparos de tamaño 50
+	DisparoPoolEnemigo pool = DisparoPoolEnemigo.getInstance(100); //pool de disparos de tamaño 50
 	
 	
 	private Enemigo enemigoLigero; //enemigo (calamar, cangrejo, pulpo) que tiene lo compartido entre grupo de enemigos 
@@ -184,5 +184,13 @@ public class EnemigoFlyweight implements Enemigo {
 		System.out.println ("entro a disparar enemigo");
 		disparoUno= pool.givetItem(posX, posY); //se toma una instancia de disparo del pool
 	}
+	
+	
+	//retornar el tipo de enemigo ligero
+	public Enemigo getTipo() {
+		return enemigoLigero;
+	}
+	
+
 
 }

@@ -2,6 +2,8 @@ package mundo;
 
 import java.io.Serializable;
 
+import excepciones.PartidaYaExisteException;
+
 /**
  * 
  * @author Manuel Alejandro Coral Lozano - Juan Sebastián Quintero Yoshioka
@@ -56,6 +58,11 @@ public abstract class Nave implements Serializable {
 	 * 
 	 */
 	private String rutaImage;
+	
+	protected Partida partidaRaiz;
+	
+	
+	
 
 	// -----------------------------------------------------------------
 	// ---------------------------Constructor---------------------------
@@ -235,11 +242,6 @@ public abstract class Nave implements Serializable {
 	public void mover(int dir) {
 	}
 
-	/**
-	 * 
-	 */
-	public void resetear() {
-	}
 	
 	/**
 	 * 
@@ -260,5 +262,7 @@ public abstract class Nave implements Serializable {
 		}
 		
 	}
+	
+	
 
 }

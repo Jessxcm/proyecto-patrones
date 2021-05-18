@@ -22,10 +22,6 @@ public class NaveJugador extends Nave {
 	// ----------------------------Atributos----------------------------
 	// -----------------------------------------------------------------
 
-	/**
-	 * 
-	 */
-	private Partida partidaRaiz;
 
 	/**
 	 * 
@@ -80,34 +76,7 @@ public class NaveJugador extends Nave {
 	// -----------------------------Métodos-----------------------------
 	// -----------------------------------------------------------------
 
-	/**
-	 * 
-	 * @param agregar
-	 * @throws PartidaYaExisteException
-	 */
-	public void agregarPartida(Partida agregar) throws PartidaYaExisteException {
 
-		if (partidaRaiz == null) {
-			partidaRaiz = agregar;
-		} else {
-			partidaRaiz.agregarPartida(agregar);
-		}
-
-	}
-
-	/**
-	 * 
-	 * @param nombre
-	 * @throws PartidaYaExisteException
-	 */
-	public Partida crearPartida(String nombre) throws PartidaYaExisteException {
-
-		Partida b = new Partida(nombre);
-		agregarPartida(b);
-
-		return b;
-
-	}
 
 	/**
 	 * 
@@ -192,7 +161,8 @@ public class NaveJugador extends Nave {
 	public int getCantidadDisparos() {
 		return cantidadDisparos;
 	}
-
+	
+/*NO SE USA*/
 	public void setCantidadDisparos(int cantidadDisparos) {
 		this.cantidadDisparos = cantidadDisparos;
 	}
@@ -204,9 +174,7 @@ public class NaveJugador extends Nave {
 	/**
 	 * 
 	 */
-	public void iniciarPartida() {
 
-	}
 
 	@Override
 	public void mover(int dir) {
@@ -237,6 +205,31 @@ public class NaveJugador extends Nave {
 		/*if(disparoUno==null){
 			disparoUno= new Disparo(posX,posY);
 		}*/	
+	}
+	
+	
+	
+
+	public void agregarPartida(Partida agregar) throws PartidaYaExisteException {
+
+		if (partidaRaiz == null) {
+			partidaRaiz = agregar;
+		} else {
+			partidaRaiz.agregarPartida(agregar);
+		}
+
+	}
+	
+	
+
+	
+	public Partida crearPartida(String nombre) throws PartidaYaExisteException {
+
+		Partida b = new Partida(nombre);
+		agregarPartida(b);
+
+		return b;
+
 	}
 
 }

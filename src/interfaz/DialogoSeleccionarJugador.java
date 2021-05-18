@@ -11,6 +11,7 @@ import java.util.Collection;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -69,6 +70,8 @@ public class DialogoSeleccionarJugador extends JDialog implements ListSelectionL
 	 */
 	@SuppressWarnings("rawtypes")
 	private JList jugadores;
+	
+	private JComboBox players;
 
 	/**
 	 * 
@@ -103,6 +106,9 @@ public class DialogoSeleccionarJugador extends JDialog implements ListSelectionL
 		scroll = new JScrollPane();
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll.setPreferredSize(new Dimension(240, 200));
+		
+		
+		
 		jugadores = new JList();
 		jugadores.addListSelectionListener(this);
 		jugadores.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -110,10 +116,25 @@ public class DialogoSeleccionarJugador extends JDialog implements ListSelectionL
 		scroll.getViewport().add(jugadores);
 		jugadores.setBackground(Color.BLACK);
 		jugadores.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
+		
+		
+		jugadores.setSelectionBackground(Color.red);
+		
+		
+		
 		jugadores.setForeground(Color.BLUE);
 		scroll.setBackground(Color.BLACK);
 		add(scroll, BorderLayout.CENTER);
 
+  
+
+        
+        /*Object color = JOptionPane.showInputDialog(null,"Seleccione Un Color",
+        		   "COLORES", JOptionPane.QUESTION_MESSAGE, null,
+        		  new Object[] { "Seleccione","Amarillo", "Azul", "Rojo" },"Seleccione");*/
+        
+        
+		
 		butBotonAceptar = new JButton(ACEPTAR);
 		butBotonAceptar.setActionCommand(ACEPTAR);
 		butBotonAceptar.addActionListener(this);

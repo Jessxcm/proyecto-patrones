@@ -270,28 +270,6 @@ public class Partida implements Serializable { //serializable ???
 		fr.close();
 	}
 
-	/*public void inicializarEnemigos() {
-		
-		for (int i = 0; i < enemigos.length; i++) {
-			for (int j = 0; j < enemigos[i].length; j++) {
-				if (i == 0) {
-					
-					enemigos[i][j] = new InvasorCalamar(nivel.getVelocidadEnemigos(), (j * nivel.getPosXPrimerEnemigo() + nivel.getPosXPrimerEnemigo())
-							, nivel.getPosYPrimerEnemigo(), nivel.getVidaEnemigos(), nivel.getAnchoEnemigos(), nivel.getAltoEnemigos(),
-							Enemigo.DERECHA, "./data/imagenes/Naves/s0.png", "./data/imagenes/Naves/s1.png");
-				} else if (i == 1 || i == 2) {
-					enemigos[i][j] = new InvasorCangrejo(nivel.getVelocidadEnemigos(), (j * nivel.getPosXPrimerEnemigo() + nivel.getPosXPrimerEnemigo()),
-							(i *  nivel.getPosYPrimerEnemigo() +  nivel.getPosYPrimerEnemigo()), nivel.getVidaEnemigos(), nivel.getAnchoEnemigos(), nivel.getAltoEnemigos(),
-							Enemigo.DERECHA, "./data/imagenes/Naves/p0.png", "./data/imagenes/Naves/p1.png");
-				} else if (i == 3 || i == 4) {
-					enemigos[i][j] = new InvasorPulpo(nivel.getVelocidadEnemigos(), (j * nivel.getPosXPrimerEnemigo() + nivel.getPosXPrimerEnemigo()),
-							(i * nivel.getPosYPrimerEnemigo() + nivel.getPosYPrimerEnemigo()), nivel.getVidaEnemigos(), nivel.getAnchoEnemigos(), nivel.getAltoEnemigos(),
-							Enemigo.DERECHA, "./data/imagenes/Naves/r0.png", "./data/imagenes/Naves/r1.png");
-				}
-			}
-		}
-	}*/
-	
 	
 	public void inicializarEnemigos() {
 		IEnemigoFactory enemyFactory = new EnemigoFactory();
