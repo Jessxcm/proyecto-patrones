@@ -13,6 +13,8 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 public class DialogoMejoresPuntajes extends JDialog implements ActionListener {
@@ -66,7 +68,41 @@ public class DialogoMejoresPuntajes extends JDialog implements ActionListener {
 
 		auxiliar = new JPanel();
 		auxiliar.setLayout(null);
+		auxiliar.setBackground(Color.BLACK);
+		
+		/*jtable*/
+		String titulos[] = { "POSICION", "PUNTAJE", "NICKNAME", "PARTIDA" };
 
+		String datos[][] = new String[puntajes.size()][4];
+		if(puntajes != null){			
+				for(int i = 0; i < puntajes.size(); i++){
+				
+					String[] informacion = puntajes.get(i).split(" ");
+				
+					datos[i][0] = informacion[0];
+					datos[i][1] = informacion[1];
+					datos[i][2] = informacion[2];
+					datos[i][3] = informacion[3];
+			}
+		}
+				
+		JTable TablaPuntajes = new JTable(datos,titulos);
+		TablaPuntajes.setEnabled(false);
+		TablaPuntajes.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		TablaPuntajes.setBackground(Color.BLACK);
+		TablaPuntajes.setForeground(Color.WHITE);
+		TablaPuntajes.setBorder(null);
+		TablaPuntajes.setFont(new Font("ArcadeClassic", Font.PLAIN, 13));
+		TablaPuntajes.setDefaultRenderer(Object.class, new MiRender());
+		
+		JScrollPane mibarra1 = new JScrollPane(TablaPuntajes);
+		mibarra1.setBounds(140, 30, 300, 310);
+		mibarra1.setViewportView(TablaPuntajes);
+		mibarra1.getViewport().setBackground(Color.BLACK);
+		mibarra1.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		
+		auxiliar.add(mibarra1);
+		
 		butBotonAceptar = new JButton(ACEPTAR);
 		butBotonAceptar.setActionCommand(ACEPTAR);
 		butBotonAceptar.addActionListener(this);
@@ -74,86 +110,17 @@ public class DialogoMejoresPuntajes extends JDialog implements ActionListener {
 		butBotonAceptar.setBackground(Color.BLACK);
 		butBotonAceptar.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 		butBotonAceptar.setForeground(Color.YELLOW);
-
+		
 		auxiliar.setSize(600,400);
 		auxiliar.add(butBotonAceptar);
 
 		auxiliar.setBackground(Color.BLACK);
-
+		System.out.println(puntajes);
 		setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 		setForeground(Color.RED);
-
-		JLabel labPosicion = new JLabel("POSICION");
-		labPosicion.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
-		labPosicion.setForeground(Color.GREEN);
-		labPosicion.setBounds(10, 10, 100, 25);
-		auxiliar.add(labPosicion);
 		
-		JLabel labPuntaje = new JLabel("PUNTAJE");
-		labPuntaje.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
-		labPuntaje.setForeground(Color.GREEN);
-		labPuntaje.setBounds(110, 10, 200, 25);
-		auxiliar.add(labPuntaje);
-		
-		JLabel labNickname = new JLabel("NICKNAME");
-		labNickname.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
-		labNickname.setForeground(Color.GREEN);
-		labNickname.setBounds(200, 10, 300, 25);
-		auxiliar.add(labNickname);
-		
-		JLabel labNombrePartida = new JLabel("PARTIDA");
-		labNombrePartida.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
-		labNombrePartida.setForeground(Color.GREEN);
-		labNombrePartida.setBounds(310, 10, 400, 25);
-		auxiliar.add(labNombrePartida);
-	
-		int x = 10;
-		int y = 30;
-
-		JLabel numero;
-		JLabel puntaje;
-		JLabel nickname;
-		JLabel partida;
-		
-		if(puntajes != null){
-			for(int i = 0; i < puntajes.size(); i++){
-				
-				String[] informacion = puntajes.get(i).split(" ");
-				
-				numero = new JLabel();
-				puntaje = new JLabel();
-				nickname = new JLabel();
-				partida = new JLabel();
-		
-				numero.setText(informacion[0]);
-				puntaje.setText(informacion[1]);
-				nickname.setText(informacion[2]);
-				partida.setText(informacion[3]);
-				
-				numero.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
-				numero.setForeground(Color.WHITE);
-				puntaje.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
-				puntaje.setForeground(Color.WHITE);
-				nickname.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
-				nickname.setForeground(Color.WHITE);
-				partida.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
-				partida.setForeground(Color.WHITE);
-				
-				numero.setBounds(x, y, 100, 25);
-				puntaje.setBounds(x + 100, y, 210, 30);
-				nickname.setBounds(x + 190, y, 300, 25);
-				partida.setBounds(x + 300, y, 400, 25);
-			
-				auxiliar.add(numero);
-				auxiliar.add(puntaje);
-				auxiliar.add(nickname);
-				auxiliar.add(partida);
-				
-				y = y + 30;
-
-			}
-		}
 		add(auxiliar);
+				
 		setUndecorated(true);
 		getRootPane().setBorder(BorderFactory.createLineBorder(Color.WHITE));
 	}

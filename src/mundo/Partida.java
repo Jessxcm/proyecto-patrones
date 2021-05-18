@@ -156,20 +156,29 @@ public class Partida implements Serializable { //serializable ???
 	}
 
 	public void agregarPartida(Partida nodo) throws PartidaYaExisteException {
+		
+		//arbol de partidas donde hay un nodo raiz (nombre de la partida inicial)
+		//las partidas con nombre mas largo van a la izquierda
+		//las partidas con nombre mas corto van a la derecha
+		
 
-		if (this.nombre.compareToIgnoreCase(nodo.nombre) == 0) {
-			throw new PartidaYaExisteException(nodo.nombre);
-		} else if (this.nombre.compareToIgnoreCase(nodo.nombre) > 0) {
+		//compareToIgnoreCase() devuelve 0 si los strings son iguales
+		//devuelve menos que 0 si  el string es menor que el otro string (menor significa que tiene menos caracteres)
+		//devuelve mas de 0 si el string tiene mas caracteres que el otro string
+		
+		if (this.nombre.compareToIgnoreCase(nodo.nombre) == 0) { 
+			throw new PartidaYaExisteException(nodo.nombre); //como son iguales, la partida ya existe
+		} else if (this.nombre.compareToIgnoreCase(nodo.nombre) > 0) { //el nombre de la partida que se quiere agregar tiene mas caracteres que la otra partida
 
-			if (partidaIzquierda == null) {
-				setPartidaIzquierda(nodo);
+			if (partidaIzquierda == null) { //si no hay nada en la izquierda
+				setPartidaIzquierda(nodo); //en el lado izquierdo se agrega un nodo
 			} else {
 				partidaIzquierda.agregarPartida(nodo);
 			}
 
 		} else {
 
-			if (partidaDerecha == null) {
+			if (partidaDerecha == null) { //nombres mas cortos van a la derecha
 				setPartidaDerecha(nodo);
 			} else {
 				partidaDerecha.agregarPartida(nodo);
@@ -179,21 +188,23 @@ public class Partida implements Serializable { //serializable ???
 
 	}
 
+	
+	//busqueda en el arbol de partidas
 	public Partida buscarPartida(String nombre) {
 
-		Partida aBuscar = null;
+		Partida aBuscar = null; //elemento a buscar
 
 		if (this != null) {
-			if (this.getNombre().equals(nombre)) {
-				aBuscar = this;
+			if (this.getNombre().equals(nombre)) { //el nombre de la partida actual es igual al nombre a buscar
+				aBuscar = this; //a buscar es el actual
 			} else {
 
-				if (this.getNombre().compareToIgnoreCase(nombre) > 0) {
-					if(this.getPartidaIzquierda() != null)
-					aBuscar = this.getPartidaIzquierda().buscarPartida(nombre);
-				} else if (this.getNombre().compareToIgnoreCase(nombre) < 0) {
-					if(this.getPartidaDerecha() != null)
-					aBuscar = this.getPartidaDerecha().buscarPartida(nombre);
+				if (this.getNombre().compareToIgnoreCase(nombre) > 0) { //nombre de la partida actual es mas largo que el nombre a buscar
+					if(this.getPartidaIzquierda() != null) //(condicion de parada)
+					aBuscar = this.getPartidaIzquierda().buscarPartida(nombre);  //buscar en la izquierda
+				} else if (this.getNombre().compareToIgnoreCase(nombre) < 0) { //nombre de la partida actual es mas corto que el nombre a buscar
+					if(this.getPartidaDerecha() != null) //(condicion de parada)
+					aBuscar = this.getPartidaDerecha().buscarPartida(nombre); //buscar en la derecha
 				}
 
 			}
@@ -201,11 +212,51 @@ public class Partida implements Serializable { //serializable ???
 
 		return aBuscar;
 	}
+	
+	
+	
+	//eliminar una partida del arbol de partidas
+	public Partida eliminar( String nombre ) {
+		if(esHoja( ))
+			return null;
+		if( this.nombre.compareToIgnoreCase(nombre) == 0) {
+			if( partidaIzquierda == null )
+				return partidaDerecha;
+			if( partidaDerecha == null )
+				return partidaIzquierda;
+
+			Partida sucesor = partidaDerecha.darMenor( );
+
+			partidaDerecha = partidaDerecha.eliminar( sucesor.getNombre());
+
+			sucesor.partidaIzquierda = partidaIzquierda;
+			sucesor.partidaDerecha = partidaDerecha;
+			return sucesor;
+		}
+		else if( this.nombre.compareToIgnoreCase(nombre) > 0)
+			partidaIzquierda = partidaIzquierda.eliminar( nombre );
+		else
+			partidaDerecha = partidaDerecha.eliminar(nombre);
+		return this;
+	}
+
+
+	public Partida darMenor( ) {
+		return (partidaIzquierda == null) ? this : partidaIzquierda.darMenor();
+	}
+
+	public boolean esHoja(){
+		return (partidaIzquierda == null && partidaDerecha == null);
+	}
+	
 
 	/**
 	 * @throws IOException
 	 * 
 	 */
+	
+	
+	//lee de los archivos los niveles
 	public void inicializarPartida() throws IOException {
 
 		File archivo = new File("");
@@ -271,6 +322,7 @@ public class Partida implements Serializable { //serializable ???
 	}
 
 	
+	//se usa la factory para iniciar los enemigos
 	public void inicializarEnemigos() {
 		IEnemigoFactory enemyFactory = new EnemigoFactory();
 		
@@ -378,37 +430,8 @@ public class Partida implements Serializable { //serializable ???
 			partidaDerecha.inorden(acumulado);
 	}
 
-	public Partida eliminar( String nombre ) {
-		if(esHoja( ))
-			return null;
-		if( this.nombre.compareToIgnoreCase(nombre) == 0) {
-			if( partidaIzquierda == null )
-				return partidaDerecha;
-			if( partidaDerecha == null )
-				return partidaIzquierda;
-
-			Partida sucesor = partidaDerecha.darMenor( );
-
-			partidaDerecha = partidaDerecha.eliminar( sucesor.getNombre());
-
-			sucesor.partidaIzquierda = partidaIzquierda;
-			sucesor.partidaDerecha = partidaDerecha;
-			return sucesor;
-		}
-		else if( this.nombre.compareToIgnoreCase(nombre) > 0)
-			partidaIzquierda = partidaIzquierda.eliminar( nombre );
-		else
-			partidaDerecha = partidaDerecha.eliminar(nombre);
-		return this;
-	}
+	
 
 
-	public Partida darMenor( ) {
-		return (partidaIzquierda == null) ? this : partidaIzquierda.darMenor();
-	}
-
-	public boolean esHoja(){
-		return (partidaIzquierda == null && partidaDerecha == null);
-	}
 
 }

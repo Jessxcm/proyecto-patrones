@@ -62,6 +62,8 @@ public abstract class Nave implements Serializable {
 	protected Partida partidaRaiz;
 	
 	
+
+	
 	
 
 	// -----------------------------------------------------------------
@@ -257,11 +259,15 @@ public abstract class Nave implements Serializable {
 	 */
 	public void disparar (int posX, int posY) {
 		
-		if (disparoUno == null) {
+		/*if (disparoUno == null) {
 			disparoUno = new Disparo(posX, posY);
 		}
-		
+		*/
 	}
+	
+	
+	abstract public void agregarPartida(Partida agregar) throws PartidaYaExisteException;
+	abstract public Partida crearPartida(String nombre) throws PartidaYaExisteException;
 	
 	
 

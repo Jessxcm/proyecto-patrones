@@ -96,31 +96,38 @@ public class DialogoCrearPartida extends JDialog implements ActionListener {
 		auxiliar = new JPanel();
 		auxiliar.setLayout(null);
 
-		nombre = new JLabel("Ingrese el nombre    de");
-		nombre.setForeground(Color.YELLOW);
-		nombre.setFont(new Font("ArcadeClassic", Font.PLAIN, 33));
-		nombre.setBounds(10, 30, 350, 20);
+		nombre = new JLabel("Ingrese el nombre de la partida");
+		nombre.setForeground(Color.WHITE);
+		nombre.setFont(new Font("ArcadeClassic", Font.BOLD, 20));
+		nombre.setBounds(10, 30, 350, 30);
+		
 
-		nombre1 = new JLabel("la    partida");
-		nombre1.setForeground(Color.YELLOW);
-		nombre1.setFont(new Font("ArcadeClassic", Font.PLAIN, 33));
-		nombre1.setBounds(10, 55, 240, 20);
+		//nombre1 = new JLabel("la    partida");
+		//nombre1.setForeground(Color.YELLOW);
+		//nombre1.setFont(new Font("ArcadeClassic", Font.PLAIN, 25));
+		//nombre1.setBounds(10, 55, 240, 20);
 
 		txtNombre = new JTextField();
-		txtNombre.setBackground(Color.orange);
-		txtNombre.setBounds(10, 150, 210, 25);
+		txtNombre.setBackground(Color.LIGHT_GRAY);
+		txtNombre.setBounds(10, 60, 300, 25);
 		txtNombre.setForeground(Color.BLUE);
 		txtNombre.setFont(new Font("ArcadeClassic", Font.PLAIN, 25));
+		
+		JLabel Hint = new JLabel("Dale un nombre a tu partida para reconocerla!");
+		Hint.setForeground(Color.RED);
+		Hint.setFont(new Font("ArcadeClassic", Font.ITALIC, 15));
+		Hint.setBounds(10, 85, 350, 20);
 
 		JLabel imagen = new JLabel();
 		ImageIcon icono = new ImageIcon("./data/imagenes/fondoAP.jpg");
 		imagen.setIcon(icono);
+		imagen.setOpaque(true);
 		imagen.setBounds(0, 0, icono.getIconWidth(), icono.getIconHeight());
 
 		butBotonAceptar = new JButton(ACEPTAR);
 		butBotonAceptar.setActionCommand(ACEPTAR);
 		butBotonAceptar.addActionListener(this);
-		butBotonAceptar.setBounds(10, 200, 130, 25);
+		butBotonAceptar.setBounds(10, 115, 130, 25);
 		butBotonAceptar.setBackground(Color.BLACK);
 		butBotonAceptar.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 		butBotonAceptar.setForeground(Color.YELLOW);
@@ -128,15 +135,16 @@ public class DialogoCrearPartida extends JDialog implements ActionListener {
 		butBotonCancelar = new JButton(CANCELAR);
 		butBotonCancelar.setActionCommand(CANCELAR);
 		butBotonCancelar.addActionListener(this);
-		butBotonCancelar.setBounds(200, 200, 130, 25);
+		butBotonCancelar.setBounds(200, 115, 130, 25);
 		butBotonCancelar.setBackground(Color.BLACK);
 		butBotonCancelar.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 		butBotonCancelar.setForeground(Color.green);
 
 		auxiliar.setSize(icono.getIconWidth(), icono.getIconHeight());
 		auxiliar.add(nombre);
-		auxiliar.add(nombre1);
+		//auxiliar.add(nombre1);
 		auxiliar.add(txtNombre);
+		auxiliar.add(Hint);
 		auxiliar.add(butBotonAceptar);
 		auxiliar.add(butBotonCancelar);
 		auxiliar.add(imagen);

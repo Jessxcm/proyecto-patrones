@@ -194,7 +194,7 @@ public class NaveJugador extends Nave {
 		disparoUno = null;
 	}
 
-
+	@Override
 	public void disparar (int posX, int posY) {	
 		//System.out.println ("entro a disparar jugador");
 		

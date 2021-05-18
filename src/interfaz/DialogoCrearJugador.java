@@ -103,26 +103,36 @@ public class DialogoCrearJugador extends JDialog implements ActionListener {
 		auxiliar.setLayout(null);
 
 		labNombre = new JLabel("NOMBRE DEL JUGADOR");
-		labNombre.setForeground(Color.RED);
-		labNombre.setFont(new Font("ArcadeClassic", Font.PLAIN, 33));
+		labNombre.setForeground(Color.GREEN);
+		labNombre.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 		labNombre.setBounds(10, 60, 350, 20);
 
 		txtNombre = new JTextField();
-		txtNombre.setBackground(Color.orange);
+		txtNombre.setBackground(Color.LIGHT_GRAY);
 		txtNombre.setBounds(10, 85, 205, 25);
 		txtNombre.setForeground(Color.BLUE);
 		txtNombre.setFont(new Font("ArcadeClassic", Font.PLAIN, 25));
+		
+		JLabel labNombreReal = new JLabel("Su nombre real, con el que lo bautizaron!");
+		labNombreReal.setForeground(Color.RED);
+		labNombreReal.setFont(new Font("ArcadeClassic", Font.PLAIN, 15));
+		labNombreReal.setBounds(10, 110, 350, 20);
 
 		labNickname = new JLabel("NICKNAME");
-		labNickname.setForeground(Color.red);
-		labNickname.setFont(new Font("ArcadeClassic", Font.PLAIN, 33));
+		labNickname.setForeground(Color.GREEN);
+		labNickname.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 		labNickname.setBounds(10, 150, 260, 20);
 
 		txtNickame = new JTextField();
-		txtNickame.setBackground(Color.orange);
+		txtNickame.setBackground(Color.LIGHT_GRAY);
 		txtNickame.setBounds(10, 180, 150, 25);
 		txtNickame.setForeground(Color.BLUE);
 		txtNickame.setFont(new Font("ArcadeClassic", Font.PLAIN, 25));
+		
+		JLabel labMaxNick = new JLabel("El Máximo de Caracteres es 5!");
+		labMaxNick.setForeground(Color.RED);
+		labMaxNick.setFont(new Font("ArcadeClassic", Font.PLAIN, 15));
+		labMaxNick.setBounds(10, 205, 350, 20);
 
 		JLabel imagen = new JLabel();
 		ImageIcon icono = new ImageIcon("./data/imagenes/fondAgJ.jpg");
@@ -132,7 +142,7 @@ public class DialogoCrearJugador extends JDialog implements ActionListener {
 		butBotonAceptar = new JButton(ACEPTAR);
 		butBotonAceptar.setActionCommand(ACEPTAR);
 		butBotonAceptar.addActionListener(this);
-		butBotonAceptar.setBounds(10, 210, 130, 25);
+		butBotonAceptar.setBounds(10, 320, 130, 25);
 		butBotonAceptar.setBackground(Color.BLACK);
 		butBotonAceptar.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 		butBotonAceptar.setForeground(Color.YELLOW);
@@ -148,8 +158,10 @@ public class DialogoCrearJugador extends JDialog implements ActionListener {
 		auxiliar.setSize(icono.getIconWidth(), icono.getIconHeight());
 		auxiliar.add(labNombre);
 		auxiliar.add(txtNombre);
+		auxiliar.add(labNombreReal);
 		auxiliar.add(labNickname);
 		auxiliar.add(txtNickame);
+		auxiliar.add(labMaxNick);
 		auxiliar.add(butBotonAceptar);
 		auxiliar.add(butBotonCancelar);
 		auxiliar.add(imagen);
