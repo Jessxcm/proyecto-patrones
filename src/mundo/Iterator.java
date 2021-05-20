@@ -11,4 +11,6 @@ public interface Iterator {
 	
 	//retorna el siguiente elemento
 	 public Object next();
+
+	 public int posicion();
 }
