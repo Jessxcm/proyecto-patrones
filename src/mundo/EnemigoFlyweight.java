@@ -19,12 +19,11 @@ public class EnemigoFlyweight implements Enemigo {
 	
 	//parte compartida y no compartida
 	public EnemigoFlyweight(Enemigo enemigoLigero, int x, int y,int direccion) {
-		super(); //iniciar parte compartida
 		//parte no compartida
 		this.posX=x;
 		this.posY=y;
 		this.direccion=direccion;
-		this.enemigoLigero=enemigoLigero;
+		this.enemigoLigero=enemigoLigero; //parte compartida
 	}
 
 		

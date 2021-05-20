@@ -17,7 +17,8 @@ public abstract class ObjectPool<T> implements Serializable {
 	  //sacar del pool
 	  public  Disparo givetItem(int x,int y) {
 		  if (available.isEmpty() ) {
-		      available.add(new Disparo(x,y));
+			  Disparo d = new Disparo(x,y);
+		      available.add(d);
 		    }
 		  Disparo instance = available.iterator().next();
 		  //limpiar la instancia
@@ -38,7 +39,7 @@ public abstract class ObjectPool<T> implements Serializable {
 	  
 	  //devolver al pool
 	  public void returnItem(Disparo instance) {
-		  if(available.size()<this.getMaxPool()) {
+		  if(available.size()<maxPool) {
 			  inUse.remove(instance);
 			  available.add(instance);
 		  }

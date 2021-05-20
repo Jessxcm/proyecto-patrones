@@ -17,6 +17,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import mundo.AgreggateIterator;
+import mundo.IAggregate;
+import mundo.Iterator;
+
 public class DialogoMejoresPuntajes extends JDialog implements ActionListener {
 
 	// -----------------------------------------------------------------
@@ -74,15 +78,22 @@ public class DialogoMejoresPuntajes extends JDialog implements ActionListener {
 		String titulos[] = { "POSICION", "PUNTAJE", "NICKNAME", "PARTIDA" };
 
 		String datos[][] = new String[puntajes.size()][4];
-		if(puntajes != null){			
-				for(int i = 0; i < puntajes.size(); i++){
-				
-					String[] informacion = puntajes.get(i).split(" ");
-				
-					datos[i][0] = informacion[0];
-					datos[i][1] = informacion[1];
-					datos[i][2] = informacion[2];
-					datos[i][3] = informacion[3];
+		if(puntajes != null){
+			
+			IAggregate aggregate = new AgreggateIterator();
+			Iterator iterator = aggregate.createIterator(puntajes);
+			
+			
+			//AggregateIterator aggregate = new AggregateIterator();
+	        //Iterator iterator = aggregate.createIterator(puntajes);
+	        while (iterator.hasNext()){
+	        	String[] informacion = puntajes.get(iterator.posicion()).split(" ");
+		        datos[iterator.posicion()][0] = informacion[0];
+				datos[iterator.posicion()][1] = informacion[1];
+				datos[iterator.posicion()][2] = informacion[2];
+				datos[iterator.posicion()][3] = informacion[3];
+	            String Linea = (String) iterator.next();
+	            System.out.println(Linea);
 			}
 		}
 				

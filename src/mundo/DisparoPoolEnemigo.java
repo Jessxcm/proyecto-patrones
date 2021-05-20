@@ -7,7 +7,7 @@ public class DisparoPoolEnemigo extends ObjectPool<Disparo> {
 	
 	
 	private DisparoPoolEnemigo(int max) {
-		System.out.println ("se creo nuevo singleton");
+		System.out.println ("singleton disparo enemigo");
 		this.setMaxPool(max);
 	}
 	
