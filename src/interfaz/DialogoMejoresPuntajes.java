@@ -87,11 +87,12 @@ public class DialogoMejoresPuntajes extends JDialog implements ActionListener {
 			//AggregateIterator aggregate = new AggregateIterator();
 	        //Iterator iterator = aggregate.createIterator(puntajes);
 	        while (iterator.hasNext()){
-	        	String[] informacion = puntajes.get(iterator.posicion()).split(" ");
-		        datos[iterator.posicion()][0] = informacion[0];
-				datos[iterator.posicion()][1] = informacion[1];
-				datos[iterator.posicion()][2] = informacion[2];
-				datos[iterator.posicion()][3] = informacion[3];
+	        	int posicion = iterator.posicion();
+	        	String[] informacion = puntajes.get(posicion).split(" "); 
+		        datos[posicion][0] = informacion[0];
+				datos[posicion][1] = informacion[1];
+				datos[posicion][2] = informacion[2];
+				datos[posicion][3] = informacion[3];
 	            String Linea = (String) iterator.next();
 	            System.out.println(Linea);
 			}

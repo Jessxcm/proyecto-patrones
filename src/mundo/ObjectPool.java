@@ -10,7 +10,6 @@ public abstract class ObjectPool<T> implements Serializable {
 	  ArrayList<Disparo> available = new ArrayList<>();
 	  ArrayList<Disparo> inUse = new ArrayList<>();
 	  
-	  int counter=0; //instancias activas
 	  int maxPool; //cantidad maxima del pool
 	   
 	    
@@ -33,9 +32,7 @@ public abstract class ObjectPool<T> implements Serializable {
 		  return instance;
 	  }
 	  
-	  
-	  
-	  
+	    
 	  
 	  //devolver al pool
 	  public void returnItem(Disparo instance) {

@@ -6,6 +6,7 @@ import java.util.HashMap;
 //se crea un enemigo con un estado extrinseco y un estado intrinseco
 
 public class EnemigoFactory extends IEnemigoFactory {
+	
 	private static HashMap <String, Enemigo> tipo_enemigos = new HashMap<String, Enemigo>();
 	
 	

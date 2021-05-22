@@ -23,7 +23,7 @@ public class EnemigoFlyweight implements Enemigo {
 		this.posX=x;
 		this.posY=y;
 		this.direccion=direccion;
-		this.enemigoLigero=enemigoLigero; //parte compartida
+		this.enemigoLigero=enemigoLigero; //parte compartida 
 	}
 
 		
